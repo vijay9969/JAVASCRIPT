@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 100%;
+        }#container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: repeat(6,auto);
+            gap: 20px;
+        }#container>div{
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+    </style>
+</head>
+<body>
+    <p style="font-weight: bold;">HELLO WORLD!</p>
+    <div id="container"></div>
+</body>
+</html>
+<script>
+    // console.log("hello world!"); 
+
+    // const url = "https://reqres.in/api/users?page=2";
+// fetch(url).then(function(res){
+//     res.json().then(function(res){
+// console.log(res.data[0].last_name);
+//     });
+// });
+
+
+// fetch(url).then(function(res){
+//     return res.json();
+// }).then(function(res){
+//     append(res.data);
+// }).catch(function(err){
+//     console.log(err);
+// });
+
+
+function append(data){
+    let container = document.getElementById("container");
+    // data.sort(function(a,b){
+    //     return a.price-b.price;
+    // })
+    // data = data.filter(function (el){
+    //     return el.category === "jewelery";
+    // })
+    data.forEach(function(el){
+        let img = document.createElement("img");
+        img.src = el.image;
+        let p = document.createElement("p");
+        p.innerText = el.title;
+        let p1 = document.createElement("p");
+        p1.innerText ="$ "+el.price;
+        let div = document.createElement("div");
+        div.append(img,p,p1);
+        container.append(div);
+        
+    });
+}
+
+
+
+
+
+
+const url = "https://fakestoreapi.com/products";
+
+async function getData(){
+try{
+    let res = await fetch(url);
+    let data = await res.json();
+    append(data);
+} catch (err){
+    console.log(err);
+}
+}
+getData();
+
+</script>

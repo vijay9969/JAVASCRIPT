@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 70%;
+            margin-left: 200px;
+        }
+        h1{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="slide">Slide Show</h1>
+    <input type="text" id="img_url" placeholder="img url">
+    <button onclick="addImage()">submit</button>
+    <br>
+    <button onclick="Pause()">Pause</button>
+    <br><br><br>
+</body>
+</html>
+<script>
+
+     let imgArr = JSON.parse(localStorage.getItem("imgData")) || [];
+     document.getElementById("slide").addEventListener("click",mySlideFunction);
+     let container = document.getElementById("slideShow");
+     let id;
+     function mySlideFunction(){
+        let display = document.querySelector("body");
+      
+        let img = document.createElement("img");
+        img.setAttribute("id","slideShow");
+        let count=0;
+        id = setInterval(function(){
+            if(count == imgArr.length ){
+        // clearInterval(id);
+              count=0;
+      }
+            
+            img.src=imgArr[count];
+            container.innerHTML = null;
+            display.append(img);
+            count++
+        },3000);
+       
+        
+     }
+   
+    function addImage(){
+        let img = document.getElementById("img_url").value;
+        imgArr.push(img)
+        document.getElementById("img_url").value = "";
+        localStorage.setItem("imgData",JSON.stringify(imgArr));
+        
+    }
+    function Pause(){
+        clearInterval(id);
+    }
+</script>
