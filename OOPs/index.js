@@ -1,6 +1,6 @@
 
 let Students = [];
-class Student {
+class User {
     #Password;
     constructor(name,id){
         this.name = name,
@@ -51,8 +51,8 @@ if(isValidated){
 // console.log("s1:",s2);
 
 
-class Student extends User{
-    constructorI(name,id){
+class student extends User {
+    constructor(name,id){
         super(name,id);
         this.numOfAssignments = 0;
     }
@@ -69,7 +69,9 @@ class Admin extends User{
     }
 
     removeStudent(id){
-     Student=Student.filter((el) =>{
+
+        // console.log(student);
+        Students=Students.filter((el) =>{
       return el.id!==id;
      });
      
@@ -77,10 +79,10 @@ class Admin extends User{
 } 
 
 
-let s1  = new Student("vijay",1);
+let s1  = new User("vijay",1);
 s1.signup("vijay123",9969);
 s1.signup("vijay123",9969);
-let s2  = new Student("pratik",2);
+let s2  = new User("pratik",2);
 s1.signup("pratik123",0000);
 s1.signup("pratik123",0000);
 let n = new Admin("nrupul",11);
