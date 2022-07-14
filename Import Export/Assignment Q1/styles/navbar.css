@@ -1,0 +1,25 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+#navbar{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 10px ;
+    background-color: rgb(243, 184, 146);
+}
+button>img{
+    width: 30px;
+}
+button{
+   display: flex;
+  align-items: center;
+   gap: 5px;
+}
+#query{
+    width: 200px;
+    padding: 5px 10px;
+}
