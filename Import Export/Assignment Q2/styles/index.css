@@ -1,0 +1,20 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+#backgroundimg{
+    padding: 20px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4,250px);
+    gap: 20px;
+}#backgroundimg>div>img{
+    width: 100%;
+    
+    border-radius: 0px 10px;
+    margin-bottom: 10px;
+}#backgroundimg>div{
+    border-radius: 5px 20px;
+    background-color: rgb(245, 232, 232);
+    padding: 20px;
+}

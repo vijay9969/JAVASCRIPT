@@ -1,6 +1,7 @@
+
+
 import navbar from "../componants/navbar.js";
 document.getElementById("container").innerHTML = navbar();
-
 
 
 
@@ -19,11 +20,12 @@ import {getData,append} from "../componants/fetch.js";
     let container = document.getElementById("backgroundimg");
 
     getData(url).then((res) => {
-        append(res.meals,container);
+        append(res.meals,container,1);
         });
+    
 
-//  async function getData(){
-//     let url = `https://www.themealdb.com/api/json/v1/1/random.php`;
+// async function getData(){
+//     let url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=52773`;
 //     let res = await fetch(url);
 //     // console.log(res);
 //     let data = await res.json();
